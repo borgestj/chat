@@ -34,9 +34,20 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'redis', '~> 3.0.0'
+gem 'devise'
+gem 'cancancan'
+gem 'materialize-sass', '~> 0.98.2'
+gem 'material_icons'
+
+
+group :test do
+  gem "factory_girl_rails"
+  gem "ffaker"
+end
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec-rails', '~> 3.5'
   gem 'byebug', platform: :mri
 end
 
