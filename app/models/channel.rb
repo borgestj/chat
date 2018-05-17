@@ -1,9 +1,8 @@
-class Team < ApplicationRecord
+class Channel < ApplicationRecord
+  has_many :messages, as: :messagable, :dependent => :destroy
+  belongs_to :team
   belongs_to :user
-  has_many :talks
-  has_many :channels
-  has_many :team_users
-  has_many :users, through: :team_users
-  validates_presence_of :slug, :user
-  validates :slug, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+  validates_presence_of :slug, :team, :user
+  validates :slug, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+  validates_uniqueness_of :slug, :scope => :team_id
 end
