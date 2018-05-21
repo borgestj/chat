@@ -138,7 +138,7 @@ RSpec.describe ChannelsController, type: :controller do
           team = create(:team)
           team.users << @current_user
           @channel = create(:channel, team: team)
-
+docker-compose run --rm website bundle exec rspec spec/controllers/
           delete :destroy, params: {id: @channel.id}
           expect(response).to have_http_status(:forbidden)
         end
